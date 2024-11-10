@@ -1,18 +1,18 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import React from 'react'
 import './App.css'
 import Users from './components/Users'
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import About from './pages/About';
+import Home from './pages/Home';
 function App() {
-  const api = import.meta.env.VITE_SERVER_API;
-  // console.log(api,"api ");
   return (
-    <>
-      <h2>Farm Setu Website</h2>
-      <p>{api} window api</p>
-      <Users/>
-    </>
+    <Router future={{ v7_startTransition: true, v7_relativeSplatPath: true }}>
+    <Routes>
+      <Route path='/' element={<Home />} />
+      <Route path='/user' element={<Users />} />
+      <Route path='/about' element={<About />} />
+    </Routes>
+  </Router>
   )
 }
 
